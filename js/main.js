@@ -23,8 +23,8 @@
   });
 
   (function animateRing() {
-    rx += (mx - rx) * 0.22;
-    ry += (my - ry) * 0.22;
+    rx += (mx - rx) * 0.42;
+    ry += (my - ry) * 0.42;
     ring.style.left = `${rx - 10}px`;
     ring.style.top  = `${ry - 10}px`;
     requestAnimationFrame(animateRing);
@@ -42,23 +42,22 @@
 (function initSlideshow() {
   const slides = [
     {
-      title: 'Precision<br><em>Engineered</em><br>Beauty.',
-      sub:   'Automation that looks as good as it works.<br>Cutting corners was never the point.'
+      title: 'Custom<br>Robotics<br><em>Systems</em>',
+      sub:   'Automation built around your operation, not the other way around'
     },
     {
-      title: '<em>Ethical</em><br>Tech.<br>Exquisite Form.',
-      sub:   'We know where every part comes from.<br>That matters to us, and it shows in the work.'
+      title: 'Engineered<br>to<br><em>Last</em>',
+      sub:   'Every system designed, tested, and supported in-house'
     },
     {
-      title: 'The Future<br>Is <em>Now.</em><br>By Design.',
-      sub:   'High-end robotics built without exploiting anyone<br>to get there. That\'s the whole idea.'
+      title: 'Local<br>Team<br><em>Real Support</em>',
+      sub:   'Based in Las Vegas. On-site when you need us'
     }
   ];
 
   const titleEl = document.getElementById('heroTitle');
   const subEl   = document.getElementById('heroSub');
-  const dots    = document.querySelectorAll('.slide-dot');
-  if (!titleEl || !subEl || !dots.length) return;
+  if (!titleEl || !subEl) return;
 
   let current = 0;
 
@@ -73,14 +72,7 @@
       titleEl.style.opacity = '1';
       subEl.style.opacity   = '1';
     }, 400);
-
-    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
   }
-
-  // Dot click handlers
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => goToSlide(+dot.dataset.slide));
-  });
 
   // Auto-advance
   setInterval(() => goToSlide((current + 1) % slides.length), 5000);
