@@ -39,14 +39,21 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden;
+}
 
 body {
   font-family: var(--font-body);
   background: var(--dark);
   color: var(--white);
   overflow-x: hidden;
+  overflow-y: scroll;
   cursor: none;
+  height: 100%;
+  scroll-snap-type: y mandatory;
 }
 
 
@@ -63,7 +70,13 @@ p {
 
 p:last-child { margin-bottom: 0; }
 
-section { padding: var(--section-pad-r); }
+section {
+  padding: var(--section-pad-r);
+  scroll-snap-align: start;
+  min-height: 100vh;
+}
+
+footer { scroll-snap-align: start; }
 
 
 /* ── 3. CURSOR ────────────────────────────────────────────── */
@@ -269,13 +282,16 @@ nav {
 #story {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  grid-template-rows: auto auto;
+  gap: 48px 80px;
+  align-items: start;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .story-visual {
   position: relative;
-  height: 500px;
+  height: 340px;
 }
 
 .story-block {
@@ -332,30 +348,77 @@ nav {
   line-height: 1;
 }
 
-.story-stats {
+.founders-grid {
+  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 48px;
-  padding-top: 48px;
+  gap: 36px;
+  padding-top: 32px;
   border-top: 1px solid rgba(94,116,142,0.2);
 }
 
-.stat-num {
-  font-family: var(--font-display);
-  font-size: 48px;
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
+.founder-card {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
 }
 
-.stat-label {
-  font-size: 10px;
+.founder-photo {
+  flex-shrink: 0;
+  width: 110px;
+  height: 140px;
+  border: 1px solid rgba(225,193,110,0.25);
+  background: var(--dark-mid);
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(225,193,110,0.08);
+  pointer-events: none;
+}
+
+.founder-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: grayscale(20%);
+}
+
+.founder-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--off-white);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.founder-name em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.founder-role {
+  font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--steel-light);
-  margin-top: 8px;
   font-weight: 300;
+  margin-bottom: 14px;
+}
+
+.founder-bio {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(235,235,235,0.6);
+  font-weight: 300;
+  margin: 0;
 }
 
 
@@ -364,6 +427,8 @@ nav {
   background: linear-gradient(160deg, #0E1218 0%, #1A1814 100%);
   position: relative;
   overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 40px;
 }
 
 #collaboration::before {
@@ -378,7 +443,7 @@ nav {
 
 .collab-intro {
   max-width: 600px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .steps {
@@ -389,7 +454,7 @@ nav {
 
 .step {
   background: rgba(94,116,142,0.06);
-  padding: 48px 40px;
+  padding: 28px 32px;
   border: 1px solid rgba(94,116,142,0.1);
   position: relative;
   transition: background var(--transition), border-color var(--transition);
@@ -402,25 +467,25 @@ nav {
 
 .step-num {
   font-family: var(--font-display);
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 300;
   color: var(--gold);
   opacity: 0.15;
   line-height: 1;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 .step h3 {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--white);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .step-arrow {
   position: absolute;
-  bottom: 48px; right: 40px;
+  bottom: 28px; right: 32px;
   width: 32px; height: 32px;
   border: 1px solid rgba(225,193,110,0.3);
   border-radius: 50%;
@@ -435,7 +500,7 @@ nav {
 
 .step:hover .step-arrow { opacity: 1; }
 
-.collab-cta { margin-top: 60px; text-align: center; }
+.collab-cta { margin-top: 32px; text-align: center; }
 
 
 /* ── 8. NEWS & TESTIMONIALS ───────────────────────────────── */
@@ -781,11 +846,11 @@ footer {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(42px, 5vw, 72px);
+  font-size: clamp(36px, 4vw, 60px);
   font-weight: 300;
   line-height: 1.05;
   letter-spacing: -1px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .section-title em { font-style: italic; color: var(--gold); }
@@ -817,6 +882,9 @@ footer {
   .scroll-line          { left: 32px; }
   #story                { grid-template-columns: 1fr; }
   .story-visual         { height: 300px; }
+  .founders-grid        { grid-template-columns: 1fr; gap: 36px; }
+  .founder-card         { flex-direction: column; }
+  .founder-photo        { width: 100%; height: 200px; }
   .steps                { grid-template-columns: 1fr; }
   .news-grid            { grid-template-columns: 1fr; }
   .testimonials-grid    { grid-template-columns: 1fr; }

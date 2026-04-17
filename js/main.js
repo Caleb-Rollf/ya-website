@@ -42,16 +42,16 @@
 (function initSlideshow() {
   const slides = [
     {
-      title: 'Custom<br>Robotics<br><em>Systems</em>',
-      sub:   'Automation built around your operation, not the other way around'
+      title: 'Domestic<br>Production<br><em>Reimagined</em>',
+      sub:   'Robotic systems that make US manufacturing work for your business.'
     },
     {
-      title: 'Engineered<br>to<br><em>Last</em>',
-      sub:   'Every system designed, tested, and supported in-house'
+      title: 'Custom<br>Automation<br><em>Built Here</em>',
+      sub:   'Designed around your process, installed on your floor, supported long-term.'
     },
     {
-      title: 'Local<br>Team<br><em>Real Support</em>',
-      sub:   'Based in Las Vegas. On-site when you need us'
+      title: 'Start<br>or Scale<br><em>Stateside</em>',
+      sub:   'From new facilities to existing operations, we scope what actually fits.'
     }
   ];
 
