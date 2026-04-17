@@ -429,6 +429,7 @@ nav {
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 40px;
+  min-height: unset;
 }
 
 #collaboration::before {
@@ -469,8 +470,8 @@ nav {
   font-family: var(--font-display);
   font-size: 48px;
   font-weight: 300;
-  color: var(--gold);
-  opacity: 0.15;
+  color: var(--gold-dark);
+  opacity: 0.55;
   line-height: 1;
   margin-bottom: 14px;
 }
@@ -481,6 +482,10 @@ nav {
   font-weight: 400;
   color: var(--white);
   margin-bottom: 10px;
+}
+
+.step p {
+  color: rgba(235,235,235,0.75);
 }
 
 .step-arrow {
@@ -501,6 +506,34 @@ nav {
 .step:hover .step-arrow { opacity: 1; }
 
 .collab-cta { margin-top: 32px; text-align: center; }
+
+.collab-testimonial {
+  position: absolute;
+  top: 90px;
+  left: 44%;
+  right: 100px;
+  text-align: right;
+}
+
+.collab-testimonial p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 1.7vw, 24px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: rgba(235,235,235,0.38);
+  margin-bottom: 14px;
+}
+
+.collab-testimonial span {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--steel-light);
+  opacity: 0.55;
+}
+
 
 
 /* ── 8. NEWS & TESTIMONIALS ───────────────────────────────── */
