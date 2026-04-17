@@ -23,10 +23,10 @@
   });
 
   (function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = `${rx - 16}px`;
-    ring.style.top  = `${ry - 16}px`;
+    rx += (mx - rx) * 0.22;
+    ry += (my - ry) * 0.22;
+    ring.style.left = `${rx - 10}px`;
+    ring.style.top  = `${ry - 10}px`;
     requestAnimationFrame(animateRing);
   })();
 
@@ -43,15 +43,15 @@
   const slides = [
     {
       title: 'Precision<br><em>Engineered</em><br>Beauty.',
-      sub:   'Where high technology meets refined design —<br>automation solutions built for the modern world.'
+      sub:   'Automation that looks as good as it works.<br>Cutting corners was never the point.'
     },
     {
-      title: '<em>Intelligent</em><br>Systems.<br>Human Scale.',
-      sub:   'Robotics built around your workflow,<br>your space, and your standards.'
+      title: '<em>Ethical</em><br>Tech.<br>Exquisite Form.',
+      sub:   'We know where every part comes from.<br>That matters to us, and it shows in the work.'
     },
     {
       title: 'The Future<br>Is <em>Now.</em><br>By Design.',
-      sub:   'Las Vegas–based automation that performs<br>as beautifully as it operates.'
+      sub:   'High-end robotics built without exploiting anyone<br>to get there. That\'s the whole idea.'
     }
   ];
 
