@@ -537,11 +537,13 @@ nav {
 
 
 /* ── 8. NEWS & TESTIMONIALS ───────────────────────────────── */
+#news { padding-top: 60px; padding-bottom: 60px; }
+
 .news-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 2px;
-  margin-top: 60px;
+  margin-top: 28px;
 }
 
 .news-card {
@@ -655,11 +657,13 @@ nav {
 /* ── 9. CAREERS ───────────────────────────────────────────── */
 #careers {
   background: linear-gradient(160deg, #0E1218 0%, #1A1814 100%);
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .careers-intro {
   max-width: 500px;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
 
 .roles-list {
@@ -729,67 +733,169 @@ nav {
 
 
 /* ── 10. FOOTER ───────────────────────────────────────────── */
+/* ── 10. CONTACT ──────────────────────────────────────────── */
 footer {
-  background: var(--dark-mid);
-  padding: 80px 120px 80px 80px;
-  border-top: 1px solid rgba(94,116,142,0.15);
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 60px;
+  background: linear-gradient(160deg, #0C0F14 0%, #1A1510 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 100px 120px 48px 80px;
+  min-height: 100vh;
 }
 
-.footer-brand .logo {
+.contact-bg-text {
+  position: absolute;
+  bottom: 72px;
+  left: 60px;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: clamp(44px, 6.5vw, 90px);
   font-weight: 300;
-  letter-spacing: 10px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
-  display: block;
-  white-space: nowrap;
+  color: rgba(225,193,110,0.32);
+  letter-spacing: 16px;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
 }
 
-.footer-col h4 {
-  font-size: 9px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
-  font-weight: 400;
+.contact-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 80px;
+  padding: 100px 0 60px;
 }
 
-.footer-col ul { list-style: none; }
+.contact-left {
+  max-width: 600px;
+}
 
-.footer-col ul li,
-.footer-col p  { margin-bottom: 14px; }
+.contact-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
 
-.footer-col a {
-  font-size: 12px;
-  color: rgba(235,235,235,0.4);
+.contact-divider {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(225,193,110,0.35), transparent);
+  flex-shrink: 0;
+}
+
+.contact-monogram {
+  font-family: var(--font-display);
+  font-size: 100px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.6;
+  letter-spacing: 8px;
+  line-height: 1;
+}
+
+.contact-side-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-social-link {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(235,235,235,0.7);
   text-decoration: none;
   font-weight: 300;
-  letter-spacing: 1px;
   transition: color var(--transition);
 }
 
-.footer-col a:hover { color: var(--gold); }
+.contact-social-link:hover { color: var(--gold); }
 
-.footer-bottom {
-  background: var(--dark-mid);
-  padding: 24px 120px 24px 80px;
+.contact-coords {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(235,235,235,0.55);
+  line-height: 1.8;
+  letter-spacing: 1px;
+}
+
+.contact-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.contact-detail {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: -1px;
+  transition: color var(--transition);
+  line-height: 1.05;
+}
+
+.contact-detail:hover { color: var(--gold); }
+
+.contact-location {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--steel-light);
+  opacity: 0.8;
+}
+
+.contact-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(94,116,142,0.1);
+  padding-top: 32px;
+  border-top: 1px solid rgba(94,116,142,0.2);
+  font-size: 10px;
+  color: rgba(235,235,235,0.5);
+  letter-spacing: 1px;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
 }
 
-.footer-bottom span {
-  font-size: 10px;
-  color: rgba(235,235,235,0.25);
-  letter-spacing: 2px;
-  font-weight: 300;
+footer .contact-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  position: static;
+  width: auto;
+  writing-mode: horizontal-tb;
+  flex-direction: row;
 }
+
+footer .contact-nav a {
+  font-size: 10px;
+  color: rgba(235,235,235,0.5);
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: 300;
+  transition: color var(--transition);
+  writing-mode: horizontal-tb;
+  text-transform: none;
+  position: static;
+}
+
+footer .contact-nav a:hover { color: var(--gold); }
 
 
 /* ── 11. UTILITIES ────────────────────────────────────────── */
@@ -905,7 +1011,6 @@ footer {
 @media (max-width: 1024px) {
   :root { --section-pad-r: 100px 100px 100px 60px; }
   .steps                { grid-template-columns: 1fr 1fr; }
-  footer                { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -923,6 +1028,8 @@ footer {
   .testimonials-grid    { grid-template-columns: 1fr; }
   .role-item            { grid-template-columns: 1fr 1fr; gap: 12px; }
   .role-title           { grid-column: 1 / -1; }
-  footer                { grid-template-columns: 1fr; padding: 60px 32px; }
-  .footer-bottom        { padding: 20px 32px; flex-direction: column; gap: 8px; text-align: center; }
+  footer                { padding: 60px 32px 32px; }
+  .contact-detail       { font-size: clamp(22px, 5vw, 36px); }
+  .contact-nav          { flex-wrap: wrap; gap: 16px; }
+  .contact-bottom       { flex-direction: column; gap: 16px; text-align: center; }
 }
